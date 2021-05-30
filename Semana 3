@@ -1,0 +1,39 @@
+CREATE DABATASE tienda_acme2;
+
+USE tienda_acme2;
+
+CREATE TABLE nombres_clientes( 
+      integer  NOT NULL PRIMARY KEY AUTO_INCREMENT coment "Nombre_cliente";
+      primer_ apellido Varchar (100)  NOT NULL coment "primer apellido ciente";
+      segundo_ apellido Varchar (100)  NOT NULL coment "segundo apellido ciente"
+      fecha_actualizacion TIMESTAMP coment "Fecha actualizacion"
+      id_direccion INTEGER NOT NULL,
+      FOREIGN KEY (id_dirreccion) REFERENCES dirreciones (id_dirrecion);
+  );
+ 
+ INSERT INTO  Clientes (Nombre,primer_apellido,segundo_apelido,id_direccion)
+ VALUES 
+ ("Nombre1","Primer_Apelido1","Segundo_Apellido1,1"),
+ ("Nombre2","Primer_Apelido2","Segundo_Apellido2,2"),
+
+ 
+ SELECT * FROM Clientes; 
+ TRUNCATE TABLE clientes;
+ 
+ CREATE TABLE Direcciones( 
+      id_dirrecion integer  NOT NULL PRIMARY KEY AUTO_INCREMENT coment "id_dirrecion";
+      calle Varchar (100)  NOT NULL coment "calle";
+      colonia Varchar (100)  NOT NULL coment "colonia"
+ );
+ 
+ INSERT INTO  Clientes (Nombre,primer_apellido, segundo_apelido)
+ VALUES 
+ ("calle1","colonia1"),
+ ("Calle2","coonia2"),
+ fecha_actualizacion timestamp
+ 
+ SELECT calle,nombre 
+ FROM dirrecciones,clientes  
+ WHERE id_direccion = 1;
+ 
+  
