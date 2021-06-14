@@ -1,0 +1,64 @@
+USE tienda_ac;
+CREATE TABLE clientes(
+id_cliente int NOT NULL PRIMARY KEY,
+nombre VARCHAR(50) NOT NULL,
+primer_apellido VARCHAR(50) NOT NULL,
+segundo_apellido VARCHAR(50) NOT NULL,
+telefono VARCHAR(30) NOT NULL,
+email VARCHAR(100) NOT NULL,
+fecha_actualizacion TIMESTAMP NOT NULL
+)ENGINE=INNODB;
+
+USE acme_tienda;
+INSERT INTO clientes
+  VALUES (1,"Diaz","Gomez","Josue","7751318787 ","id.Josuegomez@.com"," 2021-07-22 09-31-89"),
+  (2,"Hernandez","Franco","Luis"," 7758221192 ","LuisfRanco@Hernandez.com"," 2021-09-13 18-0-09 "),
+  (3,"Macias","Lara","Saul"," 77577099872 ","Matias@Larasaul.com","2021-07-12 17-24-18 ");
+ 
+ USE tienda_ac;
+CREATE TABLE ventas(
+id_venta int NOT NULL PRIMARY KEY,
+fecha_venta TIMESTAMP,
+total_venta VARCHAR(50),
+id_cliente INT NOT NULL,
+FOREIGN KEY (id_cliente) REFERENCES clientes(id_cliente)
+)ENGINE=INNODB;
+
+INSERT INTO ventas
+ VALUES ("1","2021-04-11 09-22-14",07,1),
+("2","2021-09-23 11-58-07 ",20,2),
+("3","2021-02-22 19-22-11",54,3);
+
+USE tienda_ac;
+CREATE TABLE productos(
+id_producto int NOT NULL PRIMARY KEY,
+nombre_producto VARCHAR(50) NOT NULL,
+descripcion VARCHAR(4000) NOT NULL,
+precio_unitario float NOT NULL,
+existencias int NOT NULL
+)ENGINE=INNODB;
+
+INSERT INTO productos
+ VALUES ("1","Pantalon","Talla",7,2),
+ ("2","Blusa","Tirantes",Color,3),
+ ("3","Camisa","Largo",4,7);
+
+USE tienda_ac;
+CREATE TABLE  detalle_ventas(
+id_detalle_venta INT NOT NULL PRIMARY KEY,
+cantidad_producto VARCHAR(50) NOT NULL,
+precio VARCHAR(50) NOT NULL,
+total_x_producto  VARCHAR(50) NOT NULL,
+id_venta INT NOT NULL,
+id_producto int NOT NULL,
+FOREIGN KEY (id_venta) REFERENCES ventas(id_venta),
+FOREIGN KEY (id_producto) REFERENCES productos(id_producto) 
+)ENGINE=INNODB;
+
+INSERT INTO detalle_ventas
+ VALUES ("Id_detalle_Venta","Id_Venta","Producto","Cantidad_producto","precio","total_producto"),
+ ("1","12",pantalon,4,$200,$800),
+ ("2","13",Playera,4,$100,$400),
+ ("3","14",Busas,4,$120,$480),
+ ("4","15",collar,4,$50,$200);
+ 
